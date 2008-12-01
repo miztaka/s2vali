@@ -114,8 +114,25 @@ public interface CsvVali {
 
 3で設定したコンポーネントをSeasar2から取得してメソッドを呼び出すことで検証が実行されます。
 検証エラーが発生した場合は、String[] にエラーメッセージがセットされます。検証がすべてOKだった場合はnullが返ります。
+{{{
+
+    @Resource
+    private CsvVali csvVali;
+
+    public void doSomething() {
+
+        String[] errors = csvVali.validateForm3(dto);
+        if (errors != null) {
+            ～～～～～～～～～
+        }
+
+        ～～～～～～～～～～～
+    }
+
+}}}
 
 エラーメッセージは jarファイル内の validatorMessages_ja.propertiesに定義されています。
+
 
 
 
