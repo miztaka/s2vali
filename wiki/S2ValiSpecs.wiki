@@ -40,7 +40,75 @@ maven2から使用することも出来ます。
 バージョンは適宜変更してください。
 
 
-== 基本的な使い方 ==
+== 基本的な使い方(tutorial) ==
+
+まずは、何もカスタマイズせずに使う方法を見ていきます。
+
+=== 1. バリデーション定義ファイルを作る ===
+
+s2vali-formset.xml をclasspath直下(src/main/resourcesなど)にコピーし、検証を行いたいformset(=bean)の定義をします。このファイルは struts-1.2等で使っているcommons-validatorの設定ファイルと同じ形式です。
+
+{{{
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE form-validation PUBLIC
+     "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+     "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+
+<form-validation>
+
+    <formset>
+        <form name="form3">
+            <field property="seq_no" depends="required,mask">
+                <msg key="s2vali.required_seq_no" name="required" />
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-9]+$</var-value>
+                </var>
+            </field>
+        </form>
+    </formset>
+
+</form-validation>
+}}}
+
+=== 2. インターフェースを定義する ===
+
+次に Validationメソッドのインターフェースを定義します。Validationメソッドの引数には、検証対象のJavaBeans(またはMap)を渡します。
+
+例えば、foo.bar.vali というパッケージに CsvVali というインターフェースを以下のような形で定義します。
+{{{
+public interface CsvVali {
+
+        // JavaBeansで検証する場合
+	String[] validateForm3(Form3Bean dto);
+
+        // Mapで検証する場合
+	String[] validateForm3(Map dto);
+
+}
+}}}
+
+メソッドの定義は以下のルールに従います。
+
+ * メソッド名は validateで始まり、<form name="form3"> で定義したフォーム名(Capitalizeしたもの)が続きます。
+ * 引数にはJavaBeansまたはMapをとります。(検証対象のオブジェクト)
+ * 戻り値は String[] または ErrorMessage[](後述) とします。
+
+
+=== 3. Aspectの設定 ===
+
+2で作成したインターフェースをSeasar2のコンポーネントとして登録します。その際にS2ValiIntercepotorをセットします。 app.dicon等に以下のように定義します。
+
+ * includeの追加
+{{{
+    <include path="s2vali.dicon"/>
+}}}
+ * componentの追加
+{{{
+    <component class="foo.bar.vali.CsvVali">
+        <aspect>s2ValiInterceptor</aspect>
+    </component>
+}}}
 
 
 == カスタマイズ ==
