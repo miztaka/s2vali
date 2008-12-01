@@ -110,6 +110,15 @@ public interface CsvVali {
     </component>
 }}}
 
+=== 4. 使う ===
+
+3で設定したコンポーネントをSeasar2から取得してメソッドを呼び出すことで検証が実行されます。
+検証エラーが発生した場合は、String[] にエラーメッセージがセットされます。検証がすべてOKだった場合はnullが返ります。
+
+エラーメッセージは jarファイル内の validatorMessages_ja.propertiesに定義されています。
+
+
+
 
 == カスタマイズ ==
 
