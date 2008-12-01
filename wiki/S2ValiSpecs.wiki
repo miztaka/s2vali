@@ -6,9 +6,38 @@ S2Vali（S2 Commons Validator Interface）は、インタフェースに対し�
 
 == セットアップ ==
 
-=== jarファイルをダウンロードする場合 ===
+S2Vali は seasar2と一緒に使います。JDK1.4以上が必要です。
+
+ダウンロードした s2vali-x.x.x.zip を解凍すると s2valiディレクトリが出来ます。
+そのなかのlibディレクトリにある「s2vali-x.x.x.jar」をクラスパスに含めて下さい。
+
+他、必要となるjarファイルもlibディレクトリ内にありますが、その内、S2Vali本体が必要とするものは以下になります。
+
+ * commons-validator-1.3.1.jar
+ * oro-2.0.8.jar
 
 === maven2を使う場合 ===
+
+maven2から使用することも出来ます。
+
+ * リポジトリの追加
+{{{
+		<repository>
+			<id>my.honestyworks.jp</id>
+			<name>Honestyworks Open Repository</name>
+			<url>http://my.honestyworks.jp/maven2</url>
+		</repository>
+}}}
+
+ * dependencyの追加
+{{{
+        <dependency>
+            <groupId>jp.honestyworks</groupId>
+            <artifactId>s2vali</artifactId>
+            <version>0.6.0</version>
+        </dependency> 
+}}}
+バージョンは適宜変更してください。
 
 
 == 基本的な使い方 ==
