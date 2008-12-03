@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR//DTD S2Container 2.4//EN"
+    "http://www.seasar.org/dtd/components24.dtd">
+<components namespace="s2vali">
+
+    <include path="s2valiConfig.dicon" />
+
+    <component name="validatorResourcesContainer" 
+        class="jp.honestyworks.s2vali.ValidatorResourcesContainer">
+       <initMethod name="init" />
+    </component>
+    
+    <component class="jp.honestyworks.s2vali.logic.impl.ValidationLogicImpl" />
+    
+	<component name="s2ValiInterceptor"
+		class="jp.honestyworks.s2vali.interceptor.S2ValiInterceptor" />
+
+</components>

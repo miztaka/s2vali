@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR//DTD S2Container 2.4//EN"
+    "http://www.seasar.org/dtd/components24.dtd">
+<components namespace="s2vali">
+
+    <component name="validatorConfig"
+        class="jp.honestyworks.s2vali.ValidatorConfig">
+        
+        <property name="resourceBundleProperties">
+            "validatorMessages"
+        </property>
+        
+        <property name="validationRules">
+            "s2vali-rules.xml, s2vali-formset.xml"
+        </property>
+        
+    </component>
+
+</components>

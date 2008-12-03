@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+   
+         http://www.apache.org/licenses/LICENSE-2.0
+   
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!DOCTYPE form-validation PUBLIC
+     "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+     "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+
+<form-validation>
+
+<!--
+     This is a minimal Validator form file with a couple of examples.
+-->
+
+    <global>
+        <validator name="required"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateRequired"
+                   methodParams="java.lang.Object, org.apache.commons.validator.Field"
+                   msg="errors.required" />
+        <validator name="requiredif"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateRequiredIf"
+                   methodParams="java.lang.Object, org.apache.commons.validator.Field"
+                   msg="errors.required" />
+        <validator name="mask"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateMask"
+                   methodParams="java.lang.Object, org.apache.commons.validator.Field"
+                   msg="errors.mask" />
+        <validator name="length"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateLength"
+                   methodParams="java.lang.Object, org.apache.commons.validator.Field"
+                   msg="errors.length" />
+        <validator name="minlength"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateMinLength"
+                   methodParams="java.lang.Object, org.apache.commons.validator.Field"
+                   msg="errors.minlength" />
+        <validator name="minbytelength"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateMinByteLength"
+                   methodParams="java.lang.Object, org.apache.commons.validator.Field"
+                   msg="errors.minbytelength" />
+        <validator name="maxlength"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateMaxLength"
+                   methodParams="java.lang.Object, org.apache.commons.validator.Field"
+                   msg="errors.maxlength" />
+        <validator name="maxbytelength"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateMaxByteLength"
+                   methodParams="java.lang.Object, org.apache.commons.validator.Field"
+                   msg="errors.maxbytelength" />
+        <validator name="byte"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateByte"
+                   methodParams="java.lang.Object, org.apache.commons.validator.Field"
+                   msg="errors.byte" />
+        <validator name="short"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateShort"
+                   methodParams="java.lang.Object, org.apache.commons.validator.Field"
+                   msg="errors.short" />
+        <validator name="integer"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateInteger"
+                   methodParams="java.lang.Object, org.apache.commons.validator.Field"
+                   msg="errors.integer" />
+        <validator name="long"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateLong"
+                   methodParams="java.lang.Object, org.apache.commons.validator.Field"
+                   msg="errors.long" />
+        <validator name="float"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateFloat"
+                   methodParams="java.lang.Object, org.apache.commons.validator.Field"
+                   msg="errors.float" />
+        <validator name="double"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateDouble"
+                   methodParams="java.lang.Object, org.apache.commons.validator.Field"
+                   msg="errors.double" />
+        <validator name="intRange"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateIntRange"
+                   methodParams="java.lang.Object, org.apache.commons.validator.Field"
+                   depends="integer"
+                   msg="errors.range" />
+        <validator name="longRange"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateLongRange"
+                   methodParams="java.lang.Object, org.apache.commons.validator.Field"
+                   depends="long"
+                   msg="errors.range" />
+        <validator name="floatRange"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateFloatRange"
+                   methodParams="java.lang.Object, org.apache.commons.validator.Field"
+                   depends="float"
+                   msg="errors.range" />
+        <validator name="doubleRange"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateDoubleRange"
+                   methodParams="java.lang.Object, org.apache.commons.validator.Field"
+                   depends="double"
+                   msg="errors.range" />
+        <validator name="date"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateDate"
+                   methodParams="java.lang.Object, java.util.Locale, org.apache.commons.validator.Field"
+                   msg="errors.date" />
+        <validator name="email"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateEmail"
+                   methodParams="java.lang.Object, org.apache.commons.validator.Field"
+                   msg="errors.email" />
+        <validator name="url"
+                   classname="jp.honestyworks.s2vali.validator.DefaultValidator"
+                   method="validateUrl"
+                   methodParams="java.lang.Object, org.apache.commons.validator.Field"
+                   msg="errors.url" />
+ 
+        <!-- An example global constant
+        <constant>
+            <constant-name>postalCode</constant-name>
+            <constant-value>^\d{5}\d*$</constant-value>
+        </constant>
+        end example-->
+
+    </global>
+
+</form-validation>
