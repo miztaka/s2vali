@@ -152,4 +152,6 @@ public interface CsvVali {
 
 == カスタマイズ ==
 
+[wiki:S2ValiCustomize カスタマイズについて]
+
 == 今後の課題 ==
