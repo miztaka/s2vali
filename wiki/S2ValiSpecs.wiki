@@ -2,7 +2,7 @@
 
 == 概要 ==
 
-S2Vali（S2 Commons Validator Interface）は、インタフェースに対しアスペクトを適用し、commons-validatorによる検証処理を簡単に実現する事が出来ます。
+!S2Vali（S2 Commons Validator Interface）は、インタフェースに対しアスペクトを適用し、commons-validatorによる検証処理を簡単に実現する事が出来ます。
 
 == セットアップ ==
 
@@ -92,7 +92,7 @@ public interface CsvVali {
 
  * メソッド名は validateで始まり、<form name="form3"> で定義したフォーム名(Capitalizeしたもの)が続きます。
  * 引数にはJavaBeansまたはMapをとります。(検証対象のオブジェクト)
- * 戻り値は String[] または ErrorMessage[](後述) とします。
+ * 戻り値は String[] または !ErrorMessage[](後述) とします。
 
 
 === 3. Aspectの設定 ===
@@ -133,8 +133,21 @@ public interface CsvVali {
 
 エラーメッセージは jarファイル内の validatorMessages_ja.propertiesに定義されています。
 
+=== 5. 戻り値について ===
 
+検証メソッドの戻り値としては、String[] または !ErrorMessages[] を使用することが出来ます。
 
+ * String[]
+  * フォーマットされたメッセージの配列です。
+  * プレースホルダー({0})の値は、<arg>タグの内容で置き換えられます。
+
+ * !ErrorMessages[]
+  * message, messageKey, argsをプロパティに持つオブジェクトです。
+  * message: エラーに該当するメッセージです。(リソースファイルから取得したもの)
+   * (例) {0}を入力してください。
+  * messageKey: XMLで定義されたkeyの値です。
+   * (例) errors.required
+  * args: <arg>タグで設定した内容の配列です。
 
 
 == カスタマイズ ==
