@@ -1,5 +1,7 @@
 == 概要 ==
 
+<wiki:toc>
+
 !S2Vali（S2 Commons Validator Interface）は、インタフェースに対しアスペクトを適用し、commons-validatorによる検証処理を簡単に実現する事が出来ます。
 
 == セットアップ ==
