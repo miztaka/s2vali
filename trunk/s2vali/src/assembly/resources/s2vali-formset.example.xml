@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE form-validation PUBLIC
+     "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+     "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+
+<form-validation>
+
+    <formset>
+        <form name="bulkdepoCsv">
+            <field property="seq_no" depends="required,mask">
+                <arg key="連番" />
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-9]+$</var-value>
+                </var>
+            </field>
+            <field property="card_id" depends="required,length">
+                <arg key="prompt.card_id" />
+                <arg key="${var:minlength}" name="length" resource="false" />
+                <arg key="${var:maxlength}" name="length" resource="false" />
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-9a-zA-Z]{16}$</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>12</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>16</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="form2">
+            <field property="seq_no" depends="required,mask">
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-9]+$</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="form3">
+            <field property="seq_no" depends="required,mask">
+                <msg key="s2vali.required_seq_no" name="required" />
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-9]+$</var-value>
+                </var>
+            </field>
+        </form>
+        
+        <form name="form4">
+            <field property="strValue1" depends="requiredif,minlength">
+                <arg key="バリュー1" />
+                <arg key="${var:minlength}" name="minlength" resource="false" />
+                <var>
+                    <var-name>field[0]</var-name>
+                    <var-value>strValue2</var-value>
+                </var>
+                <var>
+                    <var-name>fieldTest[0]</var-name>
+                    <var-value>NOTNULL</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="intValue1" depends="minlength">
+                <arg key="iバリュー1" />
+                <arg key="${var:minlength}" name="minlength" resource="false" />
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>3</var-value>
+                </var>
+            </field>
+            <field property="longValue1" depends="minlength">
+                <arg key="Lバリュー1" />
+                <arg key="${var:minlength}" name="minlength" resource="false" />
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>3</var-value>
+                </var>
+            </field>
+            <field property="floatValue1" depends="minlength">
+                <arg key="Fバリュー1" />
+                <arg key="${var:minlength}" name="minlength" resource="false" />
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="longObjValue1" depends="minlength">
+                <arg key="LOバリュー1" />
+                <arg key="${var:minlength}" name="minlength" resource="false" />
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>3</var-value>
+                </var>
+            </field>
+            <field property="floatObjValue1" depends="minlength">
+                <arg key="FOバリュー1" />
+                <arg key="${var:minlength}" name="minlength" resource="false" />
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+        </form>
+
+        <form name="form5">
+            <field property="strValue1" depends="requiredif,maxlength">
+                <arg key="バリュー1" />
+                <arg key="${var:maxlength}" name="maxlength" resource="false" />
+                <var>
+                    <var-name>field[0]</var-name>
+                    <var-value>strValue2</var-value>
+                </var>
+                <var>
+                    <var-name>fieldTest[0]</var-name>
+                    <var-value>NULL</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="intValue1" depends="maxlength">
+                <arg key="iバリュー1" />
+                <arg key="${var:maxlength}" name="maxlength" resource="false" />
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>3</var-value>
+                </var>
+            </field>
+            <field property="longValue1" depends="maxlength">
+                <arg key="Lバリュー1" />
+                <arg key="${var:maxlength}" name="maxlength" resource="false" />
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>3</var-value>
+                </var>
+            </field>
+            <field property="floatValue1" depends="maxlength">
+                <arg key="Fバリュー1" />
+                <arg key="${var:maxlength}" name="maxlength" resource="false" />
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="longObjValue1" depends="maxlength">
+                <arg key="LOバリュー1" />
+                <arg key="${var:maxlength}" name="maxlength" resource="false" />
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>3</var-value>
+                </var>
+            </field>
+            <field property="floatObjValue1" depends="maxlength">
+                <arg key="FOバリュー1" />
+                <arg key="${var:maxlength}" name="maxlength" resource="false" />
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+        </form>
+
+        <form name="form6">
+            <field property="strValue1" depends="requiredif,minbytelength">
+                <arg key="バリュー1" />
+                <arg key="${var:minbytelength}" name="minbytelength" resource="false" />
+                <var>
+                    <var-name>field[0]</var-name>
+                    <var-value>intValue2</var-value>
+                </var>
+                <var>
+                    <var-name>fieldTest[0]</var-name>
+                    <var-value>EQUAL</var-value>
+                </var>
+                <var>
+                    <var-name>fieldValue[0]</var-name>
+                    <var-value>9</var-value>
+                </var>
+                <var>
+                    <var-name>minbytelength</var-name>
+                    <var-value>5</var-value>
+                </var>
+                <var>
+                    <var-name>charset</var-name>
+                    <var-value>Shift_JIS</var-value>
+                </var>
+            </field>
+            <field property="intValue1" depends="minbytelength">
+                <arg key="iバリュー1" />
+                <arg key="${var:minbytelength}" name="minbytelength" resource="false" />
+                <var>
+                    <var-name>minbytelength</var-name>
+                    <var-value>3</var-value>
+                </var>
+            </field>
+            <field property="longValue1" depends="minbytelength">
+                <arg key="Lバリュー1" />
+                <arg key="${var:minbytelength}" name="minbytelength" resource="false" />
+                <var>
+                    <var-name>minbytelength</var-name>
+                    <var-value>3</var-value>
+                </var>
+            </field>
+            <field property="floatValue1" depends="minbytelength">
+                <arg key="Fバリュー1" />
+                <arg key="${var:minbytelength}" name="minbytelength" resource="false" />
+                <var>
+                    <var-name>minbytelength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="longObjValue1" depends="minbytelength">
+                <arg key="LOバリュー1" />
+                <arg key="${var:minbytelength}" name="minbytelength" resource="false" />
+                <var>
+                    <var-name>minbytelength</var-name>
+                    <var-value>3</var-value>
+                </var>
+            </field>
+            <field property="floatObjValue1" depends="minbytelength">
+                <arg key="FOバリュー1" />
+                <arg key="${var:minbytelength}" name="minbytelength" resource="false" />
+                <var>
+                    <var-name>minbytelength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+        </form>
+
+        <form name="form7">
+            <field property="strValue1" depends="requiredif,maxbytelength">
+                <arg key="バリュー1" />
+                <arg key="${var:maxbytelength}" name="maxbytelength" resource="false" />
+                <var>
+                    <var-name>field[0]</var-name>
+                    <var-value>floatValue2</var-value>
+                </var>
+                <var>
+                    <var-name>fieldTest[0]</var-name>
+                    <var-value>EQUAL</var-value>
+                </var>
+                <var>
+                    <var-name>fieldValue[0]</var-name>
+                    <var-value>3.14</var-value>
+                </var>
+                <var>
+                    <var-name>maxbytelength</var-name>
+                    <var-value>5</var-value>
+                </var>
+                <var>
+                    <var-name>charset</var-name>
+                    <var-value>UTF-8</var-value>
+                </var>
+            </field>
+            <field property="intValue1" depends="maxbytelength">
+                <arg key="iバリュー1" />
+                <arg key="${var:maxbytelength}" name="maxbytelength" resource="false" />
+                <var>
+                    <var-name>maxbytelength</var-name>
+                    <var-value>3</var-value>
+                </var>
+            </field>
+            <field property="longValue1" depends="maxbytelength">
+                <arg key="Lバリュー1" />
+                <arg key="${var:maxbytelength}" name="maxbytelength" resource="false" />
+                <var>
+                    <var-name>maxbytelength</var-name>
+                    <var-value>3</var-value>
+                </var>
+            </field>
+            <field property="floatValue1" depends="maxbytelength">
+                <arg key="Fバリュー1" />
+                <arg key="${var:maxbytelength}" name="maxbytelength" resource="false" />
+                <var>
+                    <var-name>maxbytelength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="longObjValue1" depends="maxbytelength">
+                <arg key="LOバリュー1" />
+                <arg key="${var:maxbytelength}" name="maxbytelength" resource="false" />
+                <var>
+                    <var-name>maxbytelength</var-name>
+                    <var-value>3</var-value>
+                </var>
+            </field>
+            <field property="floatObjValue1" depends="maxbytelength">
+                <arg key="FOバリュー1" />
+                <arg key="${var:maxbytelength}" name="maxbytelength" resource="false" />
+                <var>
+                    <var-name>maxbytelength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+        </form>
+
+        <form name="form8">
+            <field property="strValue1" depends="intRange">
+                <arg key="バリュー1" />
+                <arg key="${var:min}" name="intRange" resource="false" />
+                <arg key="${var:max}" name="intRange" resource="false" />
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>999</var-value>
+                </var>
+            </field>
+            <field property="intValue1" depends="intRange">
+                <arg key="iバリュー1" />
+                <arg key="${var:min}" name="intRange" resource="false" />
+                <arg key="${var:max}" name="intRange" resource="false" />
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>-100</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>999</var-value>
+                </var>
+            </field>
+            <field property="longValue1" depends="intRange">
+                <arg key="Lバリュー1" />
+                <arg key="${var:min}" name="intRange" resource="false" />
+                <arg key="${var:max}" name="intRange" resource="false" />
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>-100</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>999</var-value>
+                </var>
+            </field>
+            <field property="longObjValue1" depends="intRange">
+                <arg key="LOバリュー1" />
+                <arg key="${var:min}" name="intRange" resource="false" />
+                <arg key="${var:max}" name="intRange" resource="false" />
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>-100</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>999</var-value>
+                </var>
+            </field>
+        </form>
+
+        <form name="form9">
+            <field property="strValue1" depends="longRange">
+                <arg key="バリュー1" />
+                <arg key="${var:min}" name="longRange" resource="false" />
+                <arg key="${var:max}" name="longRange" resource="false" />
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>999</var-value>
+                </var>
+            </field>
+            <field property="intValue1" depends="longRange">
+                <arg key="iバリュー1" />
+                <arg key="${var:min}" name="longRange" resource="false" />
+                <arg key="${var:max}" name="longRange" resource="false" />
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>-100</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>999</var-value>
+                </var>
+            </field>
+            <field property="longValue1" depends="longRange">
+                <arg key="Lバリュー1" />
+                <arg key="${var:min}" name="longRange" resource="false" />
+                <arg key="${var:max}" name="longRange" resource="false" />
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>-100</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>999</var-value>
+                </var>
+            </field>
+            <field property="longObjValue1" depends="longRange">
+                <arg key="LOバリュー1" />
+                <arg key="${var:min}" name="longRange" resource="false" />
+                <arg key="${var:max}" name="longRange" resource="false" />
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>-100</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>999</var-value>
+                </var>
+            </field>
+        </form>
+
+        <form name="form10">
+            <field property="strValue1" depends="floatRange">
+                <arg key="バリュー1" />
+                <arg key="${var:min}" name="floatRange" resource="false" />
+                <arg key="${var:max}" name="floatRange" resource="false" />
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1.1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>999.9</var-value>
+                </var>
+            </field>
+            <field property="intValue1" depends="floatRange">
+                <arg key="iバリュー1" />
+                <arg key="${var:min}" name="floatRange" resource="false" />
+                <arg key="${var:max}" name="floatRange" resource="false" />
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>-100.1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>999.9</var-value>
+                </var>
+            </field>
+            <field property="longValue1" depends="floatRange">
+                <arg key="Lバリュー1" />
+                <arg key="${var:min}" name="floatRange" resource="false" />
+                <arg key="${var:max}" name="floatRange" resource="false" />
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>-100.1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>999.9</var-value>
+                </var>
+            </field>
+            <field property="longObjValue1" depends="floatRange">
+                <arg key="LOバリュー1" />
+                <arg key="${var:min}" name="floatRange" resource="false" />
+                <arg key="${var:max}" name="floatRange" resource="false" />
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>-100.1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>999.9</var-value>
+                </var>
+            </field>
+        </form>
+
+        <form name="form11">
+            <field property="strValue1" depends="doubleRange">
+                <arg key="バリュー1" />
+                <arg key="${var:min}" name="doubleRange" resource="false" />
+                <arg key="${var:max}" name="doubleRange" resource="false" />
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>1.1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>999.9</var-value>
+                </var>
+            </field>
+            <field property="intValue1" depends="doubleRange">
+                <arg key="iバリュー1" />
+                <arg key="${var:min}" name="doubleRange" resource="false" />
+                <arg key="${var:max}" name="doubleRange" resource="false" />
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>-100.1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>999.9</var-value>
+                </var>
+            </field>
+            <field property="longValue1" depends="doubleRange">
+                <arg key="Lバリュー1" />
+                <arg key="${var:min}" name="doubleRange" resource="false" />
+                <arg key="${var:max}" name="doubleRange" resource="false" />
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>-100.1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>999.9</var-value>
+                </var>
+            </field>
+            <field property="floatObjValue1" depends="doubleRange">
+                <arg key="FOバリュー1" />
+                <arg key="${var:min}" name="doubleRange" resource="false" />
+                <arg key="${var:max}" name="doubleRange" resource="false" />
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>-100.1</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>999.9</var-value>
+                </var>
+            </field>
+        </form>
+
+        <form name="form12">
+            <field property="strValue1" depends="date">
+                <arg key="バリュー1" />
+                <arg key="${var:datePattern}" name="date" resource="false" />
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>yyyy-MM-dd</var-value>
+                </var>
+            </field>
+            <field property="intValue1" depends="date">
+                <arg key="iバリュー1" />
+                <arg key="${var:datePattern}" name="date" resource="false" />
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>yyyyMMdd</var-value>
+                </var>
+            </field>
+            <field property="strValue2" depends="email">
+                <arg key="バリュー2" />
+            </field>
+        </form>
+
+    </formset>
+
+</form-validation>
