@@ -4,7 +4,7 @@
 
 == セットアップ ==
 
-S2Vali は seasar2と一緒に使います。JDK1.4以上が必要です。
+!S2Vali は seasar2と一緒に使います。JDK1.4以上が必要です。
 
 ダウンロードした s2vali-x.x.x.zip を解凍すると s2valiディレクトリが出来ます。
 そのなかのlibディレクトリにある「s2vali-x.x.x.jar」をクラスパスに含めて下さい。
@@ -130,6 +130,7 @@ public interface CsvVali {
 }}}
 
 エラーメッセージは jarファイル内の validatorMessages_ja.propertiesに定義されています。
+(現在のところ、jaロケールにのみ対応しています。)
 
 === 5. 戻り値について ===
 
@@ -156,3 +157,4 @@ public interface CsvVali {
  * 引数を Object... でも大丈夫なようにする。
  * teedaとの連携。(FacesMessageUtil.addErrorMessages() でエラーを書き込む。)
  * SAStrutsとの連携。(できるのか。。)
+ * リソースファイルのLocale対応。。
